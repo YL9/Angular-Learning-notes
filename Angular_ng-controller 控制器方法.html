@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        姓: <input type="text" ng-model="lastname">
+        <br>
+        名: <input type="text" ng-model="firstname">
+        <br>
+        姓名: {{ fullName() }}
+    </div>
+
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script>
+
+        // 将 lastname 和 firstname 封装进 $scope.fullName 作用域函数内，在外部直接调用函数 fullName()
+
+        var app = angular.module('myApp',[])        
+        app.controller('myCtrl',function($scope){
+            $scope.lastname = "Y"
+            $scope.firstname = "oli"
+            $scope.fullName = function(){
+                return $scope.lastname + $scope.firstname
+            }
+        })
+    </script>
+</body>
+</html>

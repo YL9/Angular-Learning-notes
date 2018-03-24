@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp">
+        <!-- 通过元素名来创建
+        <!-- <runoob-directive></runoob-directive> -->
+
+        <!-- 通过属性来创建 -->
+        <!-- <div runoob-directive></div> -->
+
+        <!-- 通过类名来创建 -->
+        <!-- <div class="runoob-directive"></div> -->
+        <!-- <p><strong>注意：</strong>类名必须要设置<b>restrict</b>的值为 "C" 才能通过类名来调用指令</p> -->
+
+        <!-- 通过注释来创建 -->
+        <!-- directive: runoob-directive -->
+        <p><strong>注意：</strong>需要在该实例中添加<strong>restrict</strong>属性，否则评论是不可见</p>
+        <p><strong>注意：</strong>必须要设置<b>restrict</b>的值为 "M" 才能通过注释来调用指令</p>
+    </div>
+    <div>
+        <ul>
+            <h3>restrict值：</h3>
+            <li>E 作为元素名使用</li>
+            <li>A 作为属性使用</li>
+            <li>C 作为类型使用</li>
+            <li>M 作为注释使用</li>
+            <li>restrict默认为E A</li>
+        </ul>
+    </div>
+</body>
+
+<!-- 
+    可通过  元素名  属性  类名  注释  来进行创建自定义指令
+ -->
+
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    // 通过元素名 属性 来创建
+    // var app = angular.module("myApp",[])
+    // app.directive("runoobDirective",function(){
+    //     return {
+    //         template : "<h1>runoobDirective 元素名 属性 自定义指令</h1>"
+    //     }
+    // })
+
+    // 通过类名来创建
+    // var app = angular.module("myApp",[])
+    // app.directive("runoobDirective",function(){
+    //     return {
+    //         restrict : "C",
+    //         template : "<h1>runoobDirective 类名 自定义指令</h1>"
+    //     }
+    // })
+
+    // 通过注释来创建
+    var app = angular.module("myApp",[])
+    app.directive("runoobDirective",function(){
+        return {
+            restrict : "M",
+            replace : true,
+            template : "<h1>runoobDirective 注释 自定义指令</h1>"
+        }
+    })
+</script>
+</html>

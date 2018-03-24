@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        名：<input type="text" ng-model="firstName"><br>
+        姓：<input type="text" ng-model="listName"><br>
+        姓名：{{firstName + " " + listName}}
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    // Angular.JS模块
+    // var app = angular.module('myApp',[])
+    
+    // Angular.JS控制器
+    // app.controller('myCtrl',function($scope){
+    //     $scope.firstName = "茂林"
+    //     $scope.listName = "姚"
+    // })
+    var app = angular.module('myApp',[])
+    app.controller('myCtrl',function($scope){
+        $scope.firstName = "茂林"
+        $scope.listName = "姚"
+    })
+</script>
+</html>

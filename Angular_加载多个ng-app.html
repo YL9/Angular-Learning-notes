@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp_1" ng-controller="myCtrl">
+        <h1>myApp_1{{lastName}}的加载:</h1>
+        <ul>
+            <li ng-repeat="x in names">{{x}} {{lastName}}</li>
+        </ul>
+    </div>
+    <div id="myApp_2" ng-app="myApp_2" ng-controller="myCtrl">
+        <h1>myApp_2{{lastName}}的加载:</h1>
+        <ul>
+            <li ng-repeat="x in names">{{x}} {{lastName}}</li>
+        </ul>
+    </div>
+    <div id="myApp_3" ng-app="myApp_3" ng-controller="myCtrl">
+        <h1>myApp_3{{lastName}}的加载:</h1>
+        <ul>
+            <li ng-repeat="x in names">{{x}} {{lastName}}</li>
+        </ul>
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    var app_1 = angular.module('myApp_1',[])
+    app_1.controller('myCtrl',function($scope,$rootScope){
+        $scope.names = ["Emil","Tobia","Linus"]
+        $rootScope.lastName = "Refsnes"
+    })
+    var app_2 = angular.module('myApp_2',[])
+    app_2.controller('myCtrl',function($scope,$rootScope){
+        $scope.names = ["Emil_2","Tobia_2","Linus_2"]
+        $rootScope.lastName = "Refsnes--2"
+    })
+    var app_3 = angular.module('myApp_3',[])
+    app_3.controller('myCtrl',function($scope,$rootScope){
+        $rootScope.lastName = "Refsnes--3"
+        $rootScope.say = function(){
+            $rootScope.lastName = "Refsnes---"
+        }
+    })
+
+    // 手动加载myApp_2 ng-app
+    angular.bootstrap(document.getElementById("myApp_2"),['myApp_2'])
+    angular.bootstrap(document.getElementById("myApp_3"),['myApp_3'])
+</script>
+</html>
